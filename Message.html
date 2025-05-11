@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz Día de las Madres</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #ffd6e8, #ffe0f0);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .envelope {
+      width: 1000px;
+      height: 650px;
+      position: relative;
+      cursor: pointer;
+      perspective: 1200px;
+    }
+
+    .flap, .letter {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 25px;
+      transition: transform 1s ease;
+      backface-visibility: hidden;
+      overflow: hidden;
+    }
+
+    .flap {
+      background: linear-gradient(135deg, #ec407a, #f48fb1);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.8em;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .letter {
+      background: #fff8fc;
+      transform: rotateY(180deg);
+      padding: 60px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      color: #6a1b9a;
+      text-align: center;
+      overflow-y: auto;
+      border: 5px double #f06292;
+      position: relative;
+    }
+
+    .letter h1 {
+      color: #d81b60;
+      margin-bottom: 30px;
+      font-size: 3em;
+    }
+
+    .letter p {
+      font-size: 1.6em;
+      line-height: 1.9;
+      color: #4a148c;
+    }
+
+    .decoraciones {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .decoraciones span {
+      position: absolute;
+      font-size: 2em;
+      opacity: 0.3;
+      animation: flotar 6s infinite alternate ease-in-out;
+    }
+
+    .decoraciones span:nth-child(1) {
+      top: 10px;
+      left: 20px;
+    }
+
+    .decoraciones span:nth-child(2) {
+      bottom: 20px;
+      right: 30px;
+      animation-delay: 2s;
+    }
+
+    .decoraciones span:nth-child(3) {
+      top: 30px;
+      right: 60px;
+      animation-delay: 1s;
+    }
+
+    .decoraciones span:nth-child(4) {
+      bottom: 40px;
+      left: 50px;
+      animation-delay: 3s;
+    }
+
+    @keyframes flotar {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+
+    .envelope.open .flap {
+      transform: rotateY(180deg);
+    }
+
+    .envelope.open .letter {
+      transform: rotateY(0deg);
+    }
+
+    @media (max-width: 1100px) {
+      .envelope {
+        width: 95vw;
+        height: 90vh;
+      }
+
+      .letter h1 {
+        font-size: 2.3em;
+      }
+
+      .letter p {
+        font-size: 1.3em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="envelope" onclick="openEnvelope(this)">
+    <div class="flap">📩 Haz clic para abrir</div>
+    <div class="letter">
+      <div class="decoraciones">
+        <span>🌸</span>
+        <span>💐</span>
+        <span>🌷</span>
+        <span>🌼</span>
+      </div>
+      <h1>¡Feliz Día de las Madres!</h1>
+      <p>
+        Gracias por tu amor incondicional, tu fuerza infinita y por ser la luz que guía nuestros caminos.<br><br>
+        En cada abrazo, cada palabra de aliento y cada sacrificio, dejas una huella imborrable en nuestras vidas.<br><br>
+        Hoy celebramos tu entrega, tu ternura y tu alegría.<br><br>
+        ¡Te quiero con todo el corazón! 💖<br><br>
+        Que este día esté lleno de sonrisas, abrazos sinceros y momentos que atesores por siempre.<br><br>
+        Con mucho amor,<br>
+        <strong>Tu hijo</strong>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function openEnvelope(element) {
+      element.classList.add('open');
+    }
+  </script>
+</body>
+</html>
